@@ -27,10 +27,6 @@
             <groupId>com.firefly</groupId>
             <artifactId>common-platform-sca-mgmt-models</artifactId>
         </dependency>
-        <dependency>
-            <groupId>com.firefly</groupId>
-            <artifactId>common-platform-notification-services-interfaces</artifactId>
-        </dependency>
 
         <!-- Common Libraries -->
         <dependency>
