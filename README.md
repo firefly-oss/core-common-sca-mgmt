@@ -39,7 +39,7 @@ Contains the REST API controllers and application entry point. This module inclu
 - OpenAPI/Swagger documentation
 
 ## Technology Stack
-- Java 21 with Virtual Threads
+- Java 25 with Virtual Threads
 - Spring Boot 3.x
 - Spring WebFlux for reactive programming
 - Spring Data R2DBC for reactive database access
@@ -70,7 +70,7 @@ Contains the REST API controllers and application entry point. This module inclu
 ## Setup and Configuration
 
 ### Prerequisites
-- Java 21 or higher
+- Java 25 or higher
 - Maven 3.8 or higher
 - PostgreSQL database
 
