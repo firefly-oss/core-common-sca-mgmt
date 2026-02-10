@@ -19,7 +19,7 @@ package com.firefly.core.sca.interfaces.dtos;
 
 import com.firefly.core.sca.interfaces.enums.SCAOperationTypeEnum;
 import com.firefly.core.sca.interfaces.enums.SCAStatusEnum;
-import com.firefly.core.utils.annotations.FilterableId;
+import org.fireflyframework.utils.annotations.FilterableId;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;

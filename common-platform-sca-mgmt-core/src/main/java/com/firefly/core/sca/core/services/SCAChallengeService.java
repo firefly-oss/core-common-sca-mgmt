@@ -17,8 +17,8 @@
 
 package com.firefly.core.sca.core.services;
 
-import com.firefly.common.core.queries.PaginationRequest;
-import com.firefly.common.core.queries.PaginationResponse;
+import org.fireflyframework.core.queries.PaginationRequest;
+import org.fireflyframework.core.queries.PaginationResponse;
 import com.firefly.core.sca.interfaces.dtos.SCAChallengeDTO;
 import com.firefly.core.sca.interfaces.dtos.ValidationResultDTO;
 import reactor.core.publisher.Flux;

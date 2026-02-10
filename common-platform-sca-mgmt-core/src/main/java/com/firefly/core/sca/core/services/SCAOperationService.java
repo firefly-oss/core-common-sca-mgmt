@@ -17,8 +17,8 @@
 
 package com.firefly.core.sca.core.services;
 
-import com.firefly.common.core.filters.FilterRequest;
-import com.firefly.common.core.queries.PaginationResponse;
+import org.fireflyframework.core.filters.FilterRequest;
+import org.fireflyframework.core.queries.PaginationResponse;
 import com.firefly.core.sca.interfaces.dtos.SCAOperationDTO;
 import com.firefly.core.sca.interfaces.dtos.ValidationResultDTO;
 import reactor.core.publisher.Mono;

@@ -17,8 +17,8 @@
 
 package com.firefly.core.sca.web.controllers;
 
-import com.firefly.common.core.queries.PaginationRequest;
-import com.firefly.common.core.queries.PaginationResponse;
+import org.fireflyframework.core.queries.PaginationRequest;
+import org.fireflyframework.core.queries.PaginationResponse;
 import com.firefly.core.sca.core.services.SCAAuditService;
 import com.firefly.core.sca.interfaces.dtos.SCAAuditDTO;
 import org.springdoc.core.annotations.ParameterObject;

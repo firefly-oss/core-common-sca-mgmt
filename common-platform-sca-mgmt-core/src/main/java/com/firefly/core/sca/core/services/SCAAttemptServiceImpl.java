@@ -17,9 +17,9 @@
 
 package com.firefly.core.sca.core.services;
 
-import com.firefly.common.core.queries.PaginationRequest;
-import com.firefly.common.core.queries.PaginationResponse;
-import com.firefly.common.core.queries.PaginationUtils;
+import org.fireflyframework.core.queries.PaginationRequest;
+import org.fireflyframework.core.queries.PaginationResponse;
+import org.fireflyframework.core.queries.PaginationUtils;
 import com.firefly.core.sca.core.mappers.SCAAttemptMapper;
 import com.firefly.core.sca.interfaces.dtos.SCAAttemptDTO;
 import com.firefly.core.sca.models.entities.SCAAttempt;
