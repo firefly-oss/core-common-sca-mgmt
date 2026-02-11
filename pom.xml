@@ -11,14 +11,14 @@
     </parent>
 
     <groupId>com.firefly</groupId>
-    <artifactId>common-platform-sca-mgmt</artifactId>
+    <artifactId>core-common-sca-mgmt</artifactId>
     <packaging>pom</packaging>
     <modules>
-        <module>common-platform-sca-mgmt-core</module>
-        <module>common-platform-sca-mgmt-interfaces</module>
-        <module>common-platform-sca-mgmt-models</module>
-        <module>common-platform-sca-mgmt-web</module>
-        <module>common-platform-sca-mgmt-sdk</module>
+        <module>core-common-sca-mgmt-core</module>
+        <module>core-common-sca-mgmt-interfaces</module>
+        <module>core-common-sca-mgmt-models</module>
+        <module>core-common-sca-mgmt-web</module>
+        <module>core-common-sca-mgmt-sdk</module>
 
     </modules>
 
@@ -28,9 +28,9 @@
         <maven.compiler.target>${java.version}</maven.compiler.target>
         <maven.compiler.release>${java.version}</maven.compiler.release>
         <fireflyframework.bom.version>26.01.01</fireflyframework.bom.version>
-        <common-platform-sca-mgmt.version>
+        <core-common-sca-mgmt.version>
             1.0.0-SNAPSHOT
-        </common-platform-sca-mgmt.version>
+        </core-common-sca-mgmt.version>
     </properties>
 
     <dependencyManagement>
@@ -45,32 +45,32 @@
             <!-- Internal modules -->
             <dependency>
                 <groupId>com.firefly</groupId>
-                <artifactId>common-platform-sca-mgmt-interfaces</artifactId>
+                <artifactId>core-common-sca-mgmt-interfaces</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.firefly</groupId>
-                <artifactId>common-platform-sca-mgmt-models</artifactId>
+                <artifactId>core-common-sca-mgmt-models</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.firefly</groupId>
-                <artifactId>common-platform-sca-mgmt-core</artifactId>
+                <artifactId>core-common-sca-mgmt-core</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.firefly</groupId>
-                <artifactId>common-platform-sca-mgmt-web</artifactId>
+                <artifactId>core-common-sca-mgmt-web</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.firefly</groupId>
-                <artifactId>common-platform-sca-mgmt-sdk</artifactId>
+                <artifactId>core-common-sca-mgmt-sdk</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.firefly</groupId>
-                <artifactId>common-platform-notification-services-interfaces</artifactId>
+                <artifactId>core-common-notification-services-interfaces</artifactId>
                 <version>${project.version}</version>
             </dependency>
         </dependencies>

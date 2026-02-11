@@ -1,6 +1,6 @@
 spring:
   application:
-    name: common-platform-sca-mgmt
+    name: core-common-sca-mgmt
     version: 1.0.0
     description: Strong Customer Authentication Management Application
     team:

@@ -7,32 +7,32 @@ The Common Platform SCA Management Service is a microservice component of the Fi
 This microservice follows a modular architecture with clear separation of concerns:
 
 ```
-common-platform-sca-mgmt/
-├── common-platform-sca-mgmt-core/       # Business logic implementation
-├── common-platform-sca-mgmt-interfaces/ # DTOs and interfaces
-├── common-platform-sca-mgmt-models/     # Data models and repositories
-└── common-platform-sca-mgmt-web/        # REST API controllers and application entry point
+core-common-sca-mgmt/
+├── core-common-sca-mgmt-core/       # Business logic implementation
+├── core-common-sca-mgmt-interfaces/ # DTOs and interfaces
+├── core-common-sca-mgmt-models/     # Data models and repositories
+└── core-common-sca-mgmt-web/        # REST API controllers and application entry point
 ```
 
 ### Module Descriptions
 
-#### common-platform-sca-mgmt-interfaces
+#### core-common-sca-mgmt-interfaces
 Contains Data Transfer Objects (DTOs) and interfaces that define the contract between the service and its clients. This module includes:
 - DTOs for SCA operations, challenges, attempts, and audit records
 - Enums for SCA status, operation types, and event types
 
-#### common-platform-sca-mgmt-models
+#### core-common-sca-mgmt-models
 Contains the data models and repositories for database interactions. This module includes:
 - Entity classes for SCA operations, challenges, attempts, and audit records
 - Spring Data R2DBC repositories for reactive database access
 - Flyway database migration scripts
 
-#### common-platform-sca-mgmt-core
+#### core-common-sca-mgmt-core
 Contains the business logic implementation. This module includes:
 - Service implementations for SCA operations, challenges, attempts, and audit records
 - Mappers for converting between entities and DTOs
 
-#### common-platform-sca-mgmt-web
+#### core-common-sca-mgmt-web
 Contains the REST API controllers and application entry point. This module includes:
 - REST controllers for exposing SCA functionality
 - Spring Boot application configuration
@@ -90,7 +90,7 @@ mvn clean package
 
 ### Running the Application
 ```bash
-java -jar common-platform-sca-mgmt-web/target/common-platform-sca-mgmt.jar
+java -jar core-common-sca-mgmt-web/target/core-common-sca-mgmt.jar
 ```
 
 ### Docker Deployment
@@ -98,7 +98,7 @@ The application can be containerized using the provided Dockerfile:
 
 ```bash
 # Build the Docker image
-docker build -t common-platform-sca-mgmt:latest .
+docker build -t core-common-sca-mgmt:latest .
 
 # Run the Docker container
 docker run -p 8080:8080 \
@@ -108,7 +108,7 @@ docker run -p 8080:8080 \
   -e DB_USERNAME=<db_username> \
   -e DB_PASSWORD=<db_password> \
   -e DB_SSL_MODE=<db_ssl_mode> \
-  common-platform-sca-mgmt:latest
+  core-common-sca-mgmt:latest
 ```
 
 ## API Documentation

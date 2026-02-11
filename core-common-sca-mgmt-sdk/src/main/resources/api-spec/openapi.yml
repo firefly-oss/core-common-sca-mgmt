@@ -1,6 +1,6 @@
 openapi: 3.0.1
 info:
-  title: common-platform-sca-mgmt
+  title: core-common-sca-mgmt
   description: Strong Customer Authentication Management Application
   contact:
     name: Firefly Software Solutions Inc

@@ -5,11 +5,11 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.firefly</groupId>
-        <artifactId>common-platform-sca-mgmt</artifactId>
+        <artifactId>core-common-sca-mgmt</artifactId>
         <version>1.0.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>common-platform-sca-mgmt-core</artifactId>
+    <artifactId>core-common-sca-mgmt-core</artifactId>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -19,11 +19,11 @@
         <!-- Internal modules -->
         <dependency>
             <groupId>com.firefly</groupId>
-            <artifactId>common-platform-sca-mgmt-interfaces</artifactId>
+            <artifactId>core-common-sca-mgmt-interfaces</artifactId>
         </dependency>
         <dependency>
             <groupId>com.firefly</groupId>
-            <artifactId>common-platform-sca-mgmt-models</artifactId>
+            <artifactId>core-common-sca-mgmt-models</artifactId>
         </dependency>
 
         <!-- Common Libraries -->
