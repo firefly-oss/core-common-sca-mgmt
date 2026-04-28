@@ -1,0 +1,1350 @@
+openapi: 3.0.1
+info:
+  title: OpenAPI definition
+  version: v0
+servers:
+- url: http://localhost:18080
+  description: Generated server url
+paths:
+  /api/v1/sca/operations/{operationId}:
+    get:
+      tags:
+      - sca-operation-controller
+      operationId: getOperation
+      parameters:
+      - name: operationId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      - name: X-Idempotency-Key
+        in: header
+        description: "Unique key for idempotent requests. If provided, ensures that\
+          \ identical requests with the same key will only be processed once."
+        required: false
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/SCAOperationDTO"
+    put:
+      tags:
+      - sca-operation-controller
+      operationId: updateOperation
+      parameters:
+      - name: operationId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      - name: X-Idempotency-Key
+        in: header
+        description: "Unique key for idempotent requests. If provided, ensures that\
+          \ identical requests with the same key will only be processed once."
+        required: false
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/SCAOperationDTO"
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/SCAOperationDTO"
+    delete:
+      tags:
+      - sca-operation-controller
+      operationId: deleteOperation
+      parameters:
+      - name: operationId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      - name: X-Idempotency-Key
+        in: header
+        description: "Unique key for idempotent requests. If provided, ensures that\
+          \ identical requests with the same key will only be processed once."
+        required: false
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+  /api/v1/sca/operations/{operationId}/history/{historyId}:
+    get:
+      tags:
+      - sca-operation-history-controller
+      operationId: getHistory
+      parameters:
+      - name: operationId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      - name: historyId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      - name: X-Idempotency-Key
+        in: header
+        description: "Unique key for idempotent requests. If provided, ensures that\
+          \ identical requests with the same key will only be processed once."
+        required: false
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/SCAOperationHistoryDTO"
+    put:
+      tags:
+      - sca-operation-history-controller
+      operationId: updateHistory
+      parameters:
+      - name: operationId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      - name: historyId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      - name: X-Idempotency-Key
+        in: header
+        description: "Unique key for idempotent requests. If provided, ensures that\
+          \ identical requests with the same key will only be processed once."
+        required: false
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/SCAOperationHistoryDTO"
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/SCAOperationHistoryDTO"
+    delete:
+      tags:
+      - sca-operation-history-controller
+      operationId: deleteHistory
+      parameters:
+      - name: operationId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      - name: historyId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      - name: X-Idempotency-Key
+        in: header
+        description: "Unique key for idempotent requests. If provided, ensures that\
+          \ identical requests with the same key will only be processed once."
+        required: false
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+  /api/v1/sca/operations/{operationId}/challenges/{challengeId}:
+    get:
+      tags:
+      - sca-challenge-controller
+      operationId: getChallenge
+      parameters:
+      - name: operationId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      - name: challengeId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      - name: X-Idempotency-Key
+        in: header
+        description: "Unique key for idempotent requests. If provided, ensures that\
+          \ identical requests with the same key will only be processed once."
+        required: false
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/SCAChallengeDTO"
+    put:
+      tags:
+      - sca-challenge-controller
+      operationId: updateChallenge
+      parameters:
+      - name: operationId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      - name: challengeId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      - name: X-Idempotency-Key
+        in: header
+        description: "Unique key for idempotent requests. If provided, ensures that\
+          \ identical requests with the same key will only be processed once."
+        required: false
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/SCAChallengeDTO"
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/SCAChallengeDTO"
+    delete:
+      tags:
+      - sca-challenge-controller
+      operationId: deleteChallenge
+      parameters:
+      - name: operationId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      - name: challengeId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      - name: X-Idempotency-Key
+        in: header
+        description: "Unique key for idempotent requests. If provided, ensures that\
+          \ identical requests with the same key will only be processed once."
+        required: false
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+  /api/v1/sca/operations/{operationId}/challenges/{challengeId}/attempts/{attemptId}:
+    get:
+      tags:
+      - sca-attempt-controller
+      operationId: getAttempt
+      parameters:
+      - name: operationId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      - name: challengeId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      - name: attemptId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      - name: X-Idempotency-Key
+        in: header
+        description: "Unique key for idempotent requests. If provided, ensures that\
+          \ identical requests with the same key will only be processed once."
+        required: false
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/SCAAttemptDTO"
+    put:
+      tags:
+      - sca-attempt-controller
+      operationId: updateAttempt
+      parameters:
+      - name: operationId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      - name: challengeId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      - name: attemptId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      - name: X-Idempotency-Key
+        in: header
+        description: "Unique key for idempotent requests. If provided, ensures that\
+          \ identical requests with the same key will only be processed once."
+        required: false
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/SCAAttemptDTO"
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/SCAAttemptDTO"
+    delete:
+      tags:
+      - sca-attempt-controller
+      operationId: deleteAttempt
+      parameters:
+      - name: operationId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      - name: challengeId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      - name: attemptId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      - name: X-Idempotency-Key
+        in: header
+        description: "Unique key for idempotent requests. If provided, ensures that\
+          \ identical requests with the same key will only be processed once."
+        required: false
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+  /api/sca/v1/operations/{operationId}/audit/{auditId}:
+    get:
+      tags:
+      - sca-audit-controller
+      operationId: getAuditEvent
+      parameters:
+      - name: operationId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      - name: auditId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      - name: X-Idempotency-Key
+        in: header
+        description: "Unique key for idempotent requests. If provided, ensures that\
+          \ identical requests with the same key will only be processed once."
+        required: false
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/SCAAuditDTO"
+    put:
+      tags:
+      - sca-audit-controller
+      operationId: updateAuditEvent
+      parameters:
+      - name: operationId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      - name: auditId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      - name: X-Idempotency-Key
+        in: header
+        description: "Unique key for idempotent requests. If provided, ensures that\
+          \ identical requests with the same key will only be processed once."
+        required: false
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/SCAAuditDTO"
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/SCAAuditDTO"
+    delete:
+      tags:
+      - sca-audit-controller
+      operationId: deleteAuditEvent
+      parameters:
+      - name: operationId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      - name: auditId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      - name: X-Idempotency-Key
+        in: header
+        description: "Unique key for idempotent requests. If provided, ensures that\
+          \ identical requests with the same key will only be processed once."
+        required: false
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+  /api/v1/sca/operations:
+    get:
+      tags:
+      - sca-operation-controller
+      operationId: filterOperations
+      parameters:
+      - name: filterRequest
+        in: query
+        required: true
+        schema:
+          $ref: "#/components/schemas/FilterRequestSCAOperationDTO"
+      - name: X-Idempotency-Key
+        in: header
+        description: "Unique key for idempotent requests. If provided, ensures that\
+          \ identical requests with the same key will only be processed once."
+        required: false
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/PaginationResponseSCAOperationDTO"
+    post:
+      tags:
+      - sca-operation-controller
+      operationId: createOperation
+      parameters:
+      - name: X-Idempotency-Key
+        in: header
+        description: "Unique key for idempotent requests. If provided, ensures that\
+          \ identical requests with the same key will only be processed once."
+        required: false
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/SCAOperationDTO"
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/SCAOperationDTO"
+  /api/v1/sca/operations/{operationId}/validate:
+    post:
+      tags:
+      - sca-operation-controller
+      operationId: validateSCA
+      parameters:
+      - name: operationId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      - name: userCode
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: X-Idempotency-Key
+        in: header
+        description: "Unique key for idempotent requests. If provided, ensures that\
+          \ identical requests with the same key will only be processed once."
+        required: false
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ValidationResultDTO"
+  /api/v1/sca/operations/{operationId}/trigger:
+    post:
+      tags:
+      - sca-operation-controller
+      operationId: triggerSCA
+      parameters:
+      - name: operationId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      - name: X-Idempotency-Key
+        in: header
+        description: "Unique key for idempotent requests. If provided, ensures that\
+          \ identical requests with the same key will only be processed once."
+        required: false
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+  /api/v1/sca/operations/{operationId}/history:
+    get:
+      tags:
+      - sca-operation-history-controller
+      operationId: getAllHistory
+      parameters:
+      - name: operationId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      - name: pageNumber
+        in: query
+        description: The zero-based page number to retrieve.
+        required: false
+        schema:
+          type: integer
+          description: The zero-based page number to retrieve.
+          format: int32
+          example: 0
+          default: 0
+        example: 0
+      - name: pageSize
+        in: query
+        description: The number of items per page.
+        required: false
+        schema:
+          type: integer
+          description: The number of items per page.
+          format: int32
+          example: 10
+          default: 10
+        example: 10
+      - name: sortBy
+        in: query
+        description: The field to sort the results by.
+        required: false
+        schema:
+          type: string
+          description: The field to sort the results by.
+          example: name
+        example: name
+      - name: sortDirection
+        in: query
+        description: "The direction of sorting, either ASC or DESC."
+        required: false
+        schema:
+          type: string
+          description: "The direction of sorting, either ASC or DESC."
+          example: DESC
+          default: DESC
+        example: DESC
+      - name: X-Idempotency-Key
+        in: header
+        description: "Unique key for idempotent requests. If provided, ensures that\
+          \ identical requests with the same key will only be processed once."
+        required: false
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/PaginationResponseSCAOperationHistoryDTO"
+    post:
+      tags:
+      - sca-operation-history-controller
+      operationId: createHistory
+      parameters:
+      - name: operationId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      - name: X-Idempotency-Key
+        in: header
+        description: "Unique key for idempotent requests. If provided, ensures that\
+          \ identical requests with the same key will only be processed once."
+        required: false
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/SCAOperationHistoryDTO"
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/SCAOperationHistoryDTO"
+  /api/v1/sca/operations/{operationId}/challenges:
+    get:
+      tags:
+      - sca-challenge-controller
+      operationId: getAllChallenges
+      parameters:
+      - name: operationId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      - name: pageNumber
+        in: query
+        description: The zero-based page number to retrieve.
+        required: false
+        schema:
+          type: integer
+          description: The zero-based page number to retrieve.
+          format: int32
+          example: 0
+          default: 0
+        example: 0
+      - name: pageSize
+        in: query
+        description: The number of items per page.
+        required: false
+        schema:
+          type: integer
+          description: The number of items per page.
+          format: int32
+          example: 10
+          default: 10
+        example: 10
+      - name: sortBy
+        in: query
+        description: The field to sort the results by.
+        required: false
+        schema:
+          type: string
+          description: The field to sort the results by.
+          example: name
+        example: name
+      - name: sortDirection
+        in: query
+        description: "The direction of sorting, either ASC or DESC."
+        required: false
+        schema:
+          type: string
+          description: "The direction of sorting, either ASC or DESC."
+          example: DESC
+          default: DESC
+        example: DESC
+      - name: X-Idempotency-Key
+        in: header
+        description: "Unique key for idempotent requests. If provided, ensures that\
+          \ identical requests with the same key will only be processed once."
+        required: false
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/PaginationResponseSCAChallengeDTO"
+    post:
+      tags:
+      - sca-challenge-controller
+      operationId: createChallenge
+      parameters:
+      - name: operationId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      - name: X-Idempotency-Key
+        in: header
+        description: "Unique key for idempotent requests. If provided, ensures that\
+          \ identical requests with the same key will only be processed once."
+        required: false
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/SCAChallengeDTO"
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/SCAChallengeDTO"
+  /api/v1/sca/operations/{operationId}/challenges/{challengeId}/validate:
+    post:
+      tags:
+      - sca-challenge-controller
+      operationId: validateChallenge
+      parameters:
+      - name: operationId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      - name: challengeId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      - name: userCode
+        in: query
+        required: true
+        schema:
+          type: string
+      - name: X-Idempotency-Key
+        in: header
+        description: "Unique key for idempotent requests. If provided, ensures that\
+          \ identical requests with the same key will only be processed once."
+        required: false
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: string
+  /api/v1/sca/operations/{operationId}/challenges/{challengeId}/attempts:
+    get:
+      tags:
+      - sca-attempt-controller
+      operationId: getAllAttempts
+      parameters:
+      - name: operationId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      - name: challengeId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      - name: pageNumber
+        in: query
+        description: The zero-based page number to retrieve.
+        required: false
+        schema:
+          type: integer
+          description: The zero-based page number to retrieve.
+          format: int32
+          example: 0
+          default: 0
+        example: 0
+      - name: pageSize
+        in: query
+        description: The number of items per page.
+        required: false
+        schema:
+          type: integer
+          description: The number of items per page.
+          format: int32
+          example: 10
+          default: 10
+        example: 10
+      - name: sortBy
+        in: query
+        description: The field to sort the results by.
+        required: false
+        schema:
+          type: string
+          description: The field to sort the results by.
+          example: name
+        example: name
+      - name: sortDirection
+        in: query
+        description: "The direction of sorting, either ASC or DESC."
+        required: false
+        schema:
+          type: string
+          description: "The direction of sorting, either ASC or DESC."
+          example: DESC
+          default: DESC
+        example: DESC
+      - name: X-Idempotency-Key
+        in: header
+        description: "Unique key for idempotent requests. If provided, ensures that\
+          \ identical requests with the same key will only be processed once."
+        required: false
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/PaginationResponseSCAAttemptDTO"
+    post:
+      tags:
+      - sca-attempt-controller
+      operationId: createAttempt
+      parameters:
+      - name: operationId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      - name: challengeId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      - name: X-Idempotency-Key
+        in: header
+        description: "Unique key for idempotent requests. If provided, ensures that\
+          \ identical requests with the same key will only be processed once."
+        required: false
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/SCAAttemptDTO"
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/SCAAttemptDTO"
+  /api/sca/v1/operations/{operationId}/audit:
+    get:
+      tags:
+      - sca-audit-controller
+      operationId: getAllAudit
+      parameters:
+      - name: operationId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      - name: pageNumber
+        in: query
+        description: The zero-based page number to retrieve.
+        required: false
+        schema:
+          type: integer
+          description: The zero-based page number to retrieve.
+          format: int32
+          example: 0
+          default: 0
+        example: 0
+      - name: pageSize
+        in: query
+        description: The number of items per page.
+        required: false
+        schema:
+          type: integer
+          description: The number of items per page.
+          format: int32
+          example: 10
+          default: 10
+        example: 10
+      - name: sortBy
+        in: query
+        description: The field to sort the results by.
+        required: false
+        schema:
+          type: string
+          description: The field to sort the results by.
+          example: name
+        example: name
+      - name: sortDirection
+        in: query
+        description: "The direction of sorting, either ASC or DESC."
+        required: false
+        schema:
+          type: string
+          description: "The direction of sorting, either ASC or DESC."
+          example: DESC
+          default: DESC
+        example: DESC
+      - name: X-Idempotency-Key
+        in: header
+        description: "Unique key for idempotent requests. If provided, ensures that\
+          \ identical requests with the same key will only be processed once."
+        required: false
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/PaginationResponseSCAAuditDTO"
+    post:
+      tags:
+      - sca-audit-controller
+      operationId: createAuditEvent
+      parameters:
+      - name: operationId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      - name: X-Idempotency-Key
+        in: header
+        description: "Unique key for idempotent requests. If provided, ensures that\
+          \ identical requests with the same key will only be processed once."
+        required: false
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/SCAAuditDTO"
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/SCAAuditDTO"
+components:
+  schemas:
+    SCAOperationDTO:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          readOnly: true
+        referenceId:
+          type: string
+        operationType:
+          type: string
+          enum:
+          - TRANSFER
+          - PASSWORD_CHANGE
+          - LOGIN
+          - LOAN_REQUEST
+          - ONBOARDING
+          - OTHER
+        partyId:
+          type: string
+        status:
+          type: string
+          enum:
+          - PENDING
+          - VERIFIED
+          - FAILED
+          - EXPIRED
+          - CANCELLED
+        createdAt:
+          type: string
+          format: date-time
+        expiresAt:
+          type: string
+          format: date-time
+        lastUpdated:
+          type: string
+          format: date-time
+        cancelledAt:
+          type: string
+          format: date-time
+    SCAOperationHistoryDTO:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        scaOperationId:
+          type: string
+          format: uuid
+        status:
+          type: string
+          enum:
+          - PENDING
+          - VERIFIED
+          - FAILED
+          - EXPIRED
+          - CANCELLED
+        eventTime:
+          type: string
+          format: date-time
+        comments:
+          type: string
+    SCAChallengeDTO:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          readOnly: true
+        scaOperationId:
+          type: string
+          format: uuid
+        challengeCode:
+          type: string
+        createdAt:
+          type: string
+          format: date-time
+        expiresAt:
+          type: string
+          format: date-time
+        used:
+          type: boolean
+    SCAAttemptDTO:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          readOnly: true
+        scaChallengeId:
+          type: string
+          format: uuid
+        attemptValue:
+          type: string
+        attemptedAt:
+          type: string
+          format: date-time
+        success:
+          type: boolean
+        ipAddress:
+          type: string
+    SCAAuditDTO:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          readOnly: true
+        scaOperationId:
+          type: string
+          format: uuid
+        scaChallengeId:
+          type: string
+          format: uuid
+        partyId:
+          type: string
+        eventType:
+          type: string
+          enum:
+          - CREATED
+          - ATTEMPTED
+          - VERIFIED
+          - FAILED
+          - EXPIRED
+          - CANCELLED
+        eventTime:
+          type: string
+          format: date-time
+        details:
+          type: string
+    ValidationResultDTO:
+      type: object
+      properties:
+        success:
+          type: boolean
+        lockedOrFailed:
+          type: boolean
+        message:
+          type: string
+    FilterOptions:
+      type: object
+      properties:
+        caseInsensitiveStrings:
+          type: boolean
+        includeInheritedFields:
+          type: boolean
+      description: Filter options for customizing filter behavior
+    FilterRequestSCAOperationDTO:
+      required:
+      - pagination
+      type: object
+      properties:
+        filters:
+          $ref: "#/components/schemas/SCAOperationDTO"
+        rangeFilters:
+          $ref: "#/components/schemas/RangeFilter"
+        pagination:
+          $ref: "#/components/schemas/PaginationRequest"
+        options:
+          $ref: "#/components/schemas/FilterOptions"
+      description: Generic filter request that includes both filter criteria and pagination
+    PaginationRequest:
+      type: object
+      properties:
+        pageNumber:
+          type: integer
+          description: The zero-based page number to retrieve.
+          format: int32
+          example: 0
+          default: 0
+        pageSize:
+          type: integer
+          description: The number of items per page.
+          format: int32
+          example: 10
+          default: 10
+        sortBy:
+          type: string
+          description: The field to sort the results by.
+          example: name
+        sortDirection:
+          type: string
+          description: "The direction of sorting, either ASC or DESC."
+          example: DESC
+          default: DESC
+      description: "Represents a pagination request for retrieving paginated results,\
+        \ including page number, size, sort field, and direction."
+    RangeFilter:
+      type: object
+      properties:
+        ranges:
+          type: object
+          additionalProperties:
+            $ref: "#/components/schemas/RangeObject"
+          description: Map of field names to their range criteria
+      description: Represents range filters for numeric fields
+    RangeObject:
+      type: object
+      properties:
+        from:
+          type: object
+          description: Start value of the range
+        to:
+          type: object
+          description: End value of the range
+      description: Represents a range with from and to values
+    PaginationResponseSCAOperationDTO:
+      type: object
+      properties:
+        content:
+          type: array
+          description: The list of items for the current page.
+          items:
+            $ref: "#/components/schemas/SCAOperationDTO"
+        totalElements:
+          type: integer
+          description: The total number of elements across all pages.
+          format: int64
+        totalPages:
+          type: integer
+          description: The total number of pages based on the data size and page size.
+          format: int32
+        currentPage:
+          type: integer
+          description: "The current page number, typically zero-based."
+          format: int32
+      description: Represents a paginated response containing a list of items and
+        pagination metadata.
+    PaginationResponseSCAOperationHistoryDTO:
+      type: object
+      properties:
+        content:
+          type: array
+          description: The list of items for the current page.
+          items:
+            $ref: "#/components/schemas/SCAOperationHistoryDTO"
+        totalElements:
+          type: integer
+          description: The total number of elements across all pages.
+          format: int64
+        totalPages:
+          type: integer
+          description: The total number of pages based on the data size and page size.
+          format: int32
+        currentPage:
+          type: integer
+          description: "The current page number, typically zero-based."
+          format: int32
+      description: Represents a paginated response containing a list of items and
+        pagination metadata.
+    PaginationResponseSCAChallengeDTO:
+      type: object
+      properties:
+        content:
+          type: array
+          description: The list of items for the current page.
+          items:
+            $ref: "#/components/schemas/SCAChallengeDTO"
+        totalElements:
+          type: integer
+          description: The total number of elements across all pages.
+          format: int64
+        totalPages:
+          type: integer
+          description: The total number of pages based on the data size and page size.
+          format: int32
+        currentPage:
+          type: integer
+          description: "The current page number, typically zero-based."
+          format: int32
+      description: Represents a paginated response containing a list of items and
+        pagination metadata.
+    PaginationResponseSCAAttemptDTO:
+      type: object
+      properties:
+        content:
+          type: array
+          description: The list of items for the current page.
+          items:
+            $ref: "#/components/schemas/SCAAttemptDTO"
+        totalElements:
+          type: integer
+          description: The total number of elements across all pages.
+          format: int64
+        totalPages:
+          type: integer
+          description: The total number of pages based on the data size and page size.
+          format: int32
+        currentPage:
+          type: integer
+          description: "The current page number, typically zero-based."
+          format: int32
+      description: Represents a paginated response containing a list of items and
+        pagination metadata.
+    PaginationResponseSCAAuditDTO:
+      type: object
+      properties:
+        content:
+          type: array
+          description: The list of items for the current page.
+          items:
+            $ref: "#/components/schemas/SCAAuditDTO"
+        totalElements:
+          type: integer
+          description: The total number of elements across all pages.
+          format: int64
+        totalPages:
+          type: integer
+          description: The total number of pages based on the data size and page size.
+          format: int32
+        currentPage:
+          type: integer
+          description: "The current page number, typically zero-based."
+          format: int32
+      description: Represents a paginated response containing a list of items and
+        pagination metadata.
